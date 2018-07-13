@@ -110,8 +110,9 @@ python -m retrain --bottleneck_dir=/Volumes/Study/GitHub/data/Pepper/bottlenecks
 python -m label_image \
     --graph=/Volumes/Study/GitHub/data/Pepper/retrained_graph.pb  \
     --labels=/Volumes/Study/GitHub/data/Pepper/retrained_labels.txt \
-    --image=/Volumes/Study/GitHub/data/Pepper/single_prediction/what_is_it-1.jpg \
     --input_height=160 \
-    --input_width=160
+    --input_width=160 \
+    --image=/Volumes/Study/GitHub/data/Pepper/single_prediction/what_is_it-1.jpg
+
 
 

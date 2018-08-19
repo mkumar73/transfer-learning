@@ -1,3 +1,4 @@
+
 ############# flowers use case
 
 ## Case-1- mobileNet-0.50, image size-224x224
@@ -100,9 +101,7 @@ python -m retrain --bottleneck_dir=/Volumes/Study/GitHub/data/Pepper/bottlenecks
   	--output_graph=/Volumes/Study/GitHub/data/Pepper/retrained_graph.pb \
   	--output_labels=/Volumes/Study/GitHub/data/Pepper/retrained_labels.txt \
   	--architecture="mobilenet_0.75_160" \
-  	--image_dir=/Volumes/Study/GitHub/data/Pepper/dataset \
-  	--flip_left_right=True \
-  	--random_brightness=3
+  	--image_dir=/Volumes/Study/GitHub/data/Pepper/dataset
 
 
 # predictions
@@ -114,5 +113,25 @@ python -m label_image \
     --input_width=160 \
     --image=/Volumes/Study/GitHub/data/Pepper/single_prediction/what_is_it-1.jpg
 
+
+## Case- 4 - inception_v3, image size-160x160
+#########################
+
+python -m retrain --bottleneck_dir=/Volumes/Study/GitHub/data/Pepper/bottlenecks \
+	--how_many_training_steps=1000 \
+	--model_dir=/Volumes/Study/GitHub/data/Pepper/models/ \
+	--summaries_dir=/Volumes/Study/GitHub/data/Pepper/training_summaries/"inception_v3" \
+  	--output_graph=/Volumes/Study/GitHub/data/Pepper/retrained_graph.pb \
+  	--output_labels=/Volumes/Study/GitHub/data/Pepper/retrained_labels.txt \
+  	--architecture="inception_v3" \
+  	--image_dir=/Volumes/Study/GitHub/data/Pepper/dataset
+
+
+# predictions
+
+python -m label_image \
+    --graph=/Volumes/Study/GitHub/data/Pepper/retrained_graph.pb  \
+    --labels=/Volumes/Study/GitHub/data/Pepper/retrained_labels.txt \
+    --image=/Volumes/Study/GitHub/data/Pepper/single_prediction/what_is_it-1.jpg
 
 
